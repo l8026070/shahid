@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+	<link rel="icon" href="assets/images/logo.png">
+	<title>شهید مقاومت - Martyr of Resistance - شهيد المقاومة</title>
+	<meta name="description" content="شهید مقاومت - Martyr of Resistance - شهيد المقاومة">
+	<link rel="apple-touch-icon" sizes="512x512" href="assets/images/logo.jpg" type="image/jpg">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="#ffffff">
+	<meta name="apple-mobile-web-app-title" content="شهید مقاومت - Martyr of Resistance - شهيد المقاومة">
+	<link rel="manifest" href="manifest.json">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="theme-color" content="#ffffff">
+	
+	<link rel="stylesheet" href="assets/css/semantic.min.css">
+	<link rel="stylesheet" href="assets/css/unite-gallery.css">
+	<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body id="body">
+	
+	<!-- sidebar left -->
+	<div class="ui sidebar sidebar-left vertical menu" id="menu">
+		<div class="user-profile" id="prof" align="center">
+			<h4><img class="profile_pic" height="30px" src="https://cdn.shahid-moqavemat.ir/user_{id}.jpg">
+				</br>{name}</b></h4>			
+		</div>
+		<div align="right" style="padding:5px">
+			<a class="ui button" onclick="AddF('thm');" id="thm_b">🌙</a>
+		</div>
+		<hr>
+		<div class="ui styled accordion" id="menu_right">
+			<div class="title">{nm}</div>
+			<div class="content">{st}</div>
+		</div>
+		<fieldset style="margin:5px"><legend style="padding:5px"> Setting - تنظیمات </legend>
+		<div class="ui" align="center">
+		<div>
+			<a class="ui button" onclick="AddF(1);" style="font-size:1.8em !important">A</a>
+			<span id="font_size">100</span>
+			<a class="ui button" onclick="AddF(-1);" style="font-size:1.1em !important">A</a>			
+		</div>
+		Font: 
+		<select class="fluid dropdown" onchange="AddF(0)" id="font_name">
+			<option selected="selected" value="Byekan">Yekan</option>
+			<option value="Bkoodak">Koodak</option>
+			<option value="Barabic">Arabic</option> 
+		</select> :خط
+		<hr><a target="_blank" href="https://shahid-moqavemat.ir/android.apk">📱 Android APK </a><br>
+		version: <span id="version">*</span>
+		</div></fieldset>
+	</div>
+	<!-- end sidebar left -->
+
+	<!-- sidebar search -->
+	<div class="ui sidebar setting inverted right vertical menu" align="center">
+		<div style="font-size:20px;margin-top:0px;margin-bottom:250px;color:#FFF">
+			<table width="100%"><tr><td width=20>📺</td><td align="right">شبکه مقاومت</td></tr></table>
+		</div>
+		<div align="center" id="rvideo">
+			<video onended="Reloadplay(1);" style="width:100%" id="videop" controls="controls" onplay="StopP(1)">
+			<source src="{media}"/></video>
+			<b style="color:#FFF">{tit}</b>			
+		</div>	
+			
+	</div>
+	<div class="ui sidebar search inverted right vertical menu" style="width:170px">
+		<div class="ui form">
+			<input id="searchq" type="search"><input id="search_q" type="hidden">
+			<button class="button" onclick="SearchQ($('#searchq').val())">🔍</button>
+		</div>
+		<h5>جستجو Search</h5>
+		<div style="height:80%;overflow:auto;color:#000">
+			<ul id="psearch_l">
+				<li class="psearch">{tit}</li>
+			</ul>		
+		</div>
+	</div>
+	<div class="ui sidebar radio inverted right vertical menu">
+		<div style="font-size:20px;margin-top:20px;margin-bottom:252px;color:#000">
+			<table width="100%" style="display:none"><tr><td width=20>📻</td><td align="right">صدای مقاومت</td></tr></table>
+		</div>
+		<div align="center" id="raudio">
+			<b>{tit}</b><br><br>
+			<audio onended="Reloadplay(0)" style="width:95%" id="audiop" controls="controls" preload="auto" onplay="StopP(2)">
+			<source src="{media}"/></audio>
+						
+		</div>	
+	</div>
+	<!-- end sidebar search -->	
+	<div class="backp"></div>
+	<!-- wrap content -->
+	<div class="wrap-content pusher">
+
+		<!-- navbar -->
+		<div class="navbar">
+			<div class="ui container">
+				<div class="ui grid">
+					<!-- navbar toggle left -->
+					<div class="six wide column">
+						<div class="navbar-toggle-left navbar-icon">
+							<b>🏠</b>
+						</div>						
+						<div class="navbar-icon">
+							<b onclick="LoadU('prayer');">🕋</b>
+						</div>
+						<div class="navbar-icon">
+							<b onclick="BackP();" id="back_p">↩</b>
+						</div>						
+					</div>
+					<!-- navbar logo -->
+					<div class="four wide column">
+						<div class="navbar-logo">
+							<a href="index.html"><img height="30" src="assets/images/logo.png" alt=""></a>
+						</div>
+					</div>
+					<!-- navbar toggle right -->
+					<div class="six wide column">
+						<div class="navbar-toggle-right navbar-icon">							
+							<div class="navbar-toggle-radio navbar-icon">
+								<b>📻</b>
+							</div>							
+							<div class="navbar-toggle-setting navbar-icon">
+								<b>📺</b>
+							</div>
+							<div class="navbar-toggle-search navbar-icon">
+								<b>🔍</b>
+							</div>							
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- end navbar -->
+			
+		<!-- page -->
+		<input id="page" type="hidden" value="home">
+		<div id="content-page">
+		
+		</div>
+		<!-- end page -->
+
+	</div>
+	<div id="upload" onclick="Upload();"><img src="assets/images/add.png" title="Upload آپلود"/></div> 
+	<div class="ui form" id="uploadp" align="center">
+		<form id="upload_f" onsubmit="return false;">
+			<div class="field">
+				<input id="pic" name="pic" type="file" accept=".pdf,.jpg,.png,.jpeg,.m4a,.3gp,.mp3,.mp4,.mov,.m4v,.ogg,.acc">
+			</div>
+			<div class="field">
+				<input id="fname" name="fname" type="text" placeholder="Title عنوان">
+			</div>
+			<a class="ui button" id="sub_up" onclick="UploadP();">✅</a>
+			<div id="loadi" style="display:none"><img src="assets/images/loading.gif"></div>
+			<input name="op" value="m_upload" type="hidden"/>
+		</form>
+	</div>
+	
+</body>
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/semantic.min.js"></script>
+<script src="assets/js/unitegallery.min.js"></script>
+<script src="assets/js/ug-theme-tiles.js"></script>
+<script src="assets/js/nano.js"></script>
+<script src="assets/js/main.js"></script>
+</html>
